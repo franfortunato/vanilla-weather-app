@@ -1,0 +1,98 @@
+.city {
+  font-weight: bold;
+  font-size: 325%;
+  font-family: sans-serif;
+}
+
+.date {
+  padding: 0 auto;
+}
+.degrees {
+  font-size: 350%;
+  color: rgb(70, 69, 69);
+  margin-top: -20px;
+}
+.current-temperature {
+  font-size: 50%;
+  position: relative;
+  top: -15px;
+  font-weight: light;
+}
+
+.description {
+  position: relative;
+  right: -5px;
+  color: rgb(70, 69, 69);
+  font-style: italic;
+}
+.current-weather {
+  font-size: 250%;
+  position: relative;
+  top: 25px;
+  right: -15px;
+}
+.wednesday,
+.thursday {
+  color: rgb(70, 69, 69);
+  position: relative;
+  left: 4px;
+}
+.friday {
+  color: rgb(70, 69, 69);
+  position: relative;
+  left: 8px;
+}
+
+.tuesday {
+  color: rgb(70, 69, 69);
+  position: relative;
+  left: 8px;
+}
+.monday {
+  color: rgb(70, 69, 69);
+  position: relative;
+  left: 0px;
+}
+.weather-tue,
+.weather-fri {
+  position: relative;
+  left: -10px;
+  font-size: 400%;
+}
+.weather-mon,
+.weather-wed {
+  position: relative;
+  left: -10px;
+  font-size: 400%;
+}
+
+.weather-thu {
+  position: relative;
+  left: -7px;
+  font-size: 400%;
+}
+.temperature-tue-max,
+.temperature-tue-min,
+.temperature-fri-max,
+.temperature-fri-mon,
+.temperature-mon-max,
+.temperature-mon-min,
+.temperature-wed-max,
+.temperature-wed-min {
+  position: relative;
+  left: 5px;
+  margin-top: 30px;
+}
+.temperature-thu-max,
+.temperature-thu-min {
+  position: relative;
+  left: 8px;
+  margin-top: 31px;
+}
+.temperature-mon-min,
+.temperature-tue-min,
+.temperature-wed-min,
+.temperature-thu-min,
+.temperature-fri-min {
+  color: rgb(70, 69, 69);
+}
