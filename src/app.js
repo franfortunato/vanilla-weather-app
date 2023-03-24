@@ -21,6 +21,7 @@ if (minute < 10) {
 }
 let currentTime = document.querySelector("#date");
 currentTime.innerHTML = `${day} ${hour}:${minute}`;
+
 function searchCity(city) {
   let apiKey = `5f472b7acba333cd8a035ea85a0d4d4c`;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;

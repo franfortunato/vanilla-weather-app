@@ -49,7 +49,7 @@ li {
   right: -5px;
   color: rgb(70, 69, 69);
   font-style: italic;
-  margin-bottom: 5px;
+  top: -10px;
 }
 .current-weather {
   font-size: 250%;
