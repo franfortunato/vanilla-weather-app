@@ -32,12 +32,16 @@ function displaycity(event) {
 }
 function displayWeatherCondition(response) {
   let currentcity = document.querySelector("#city");
-  currentcity.innerHTML = `${response.data.name}`;
+  currentcity.innerHTML = response.data.name;
   let temperature = document.querySelector("#temp");
   let temp = Math.round(response.data.main.temp);
   temperature.innerHTML = `${temp}`;
   let description = document.querySelector("#des");
-  description.innerHTML = `${response.data.weather[0].description}`;
+  description.innerHTML = response.data.weather[0].description;
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = response.data.main.humidity;
+  let wind = document.querySelector("#wind");
+  wind.innerHTML = Math.round(response.data.wind.speed);
 }
 function searchLocation(position) {
   let apiKey = `5f472b7acba333cd8a035ea85a0d4d4c`;
