@@ -21,14 +21,15 @@ if (minute < 10) {
 }
 let currentTime = document.querySelector("#date");
 currentTime.innerHTML = `${day} ${hour}:${minute}`;
-
-function displaycity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#your-city").value;
+function searchCity(city) {
   let apiKey = `5f472b7acba333cd8a035ea85a0d4d4c`;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
   axios.get(url).then(displayWeatherCondition);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#your-city").value;
+  searchCity(city);
 }
 function displayWeatherCondition(response) {
   let currentcity = document.querySelector("#city");
@@ -54,6 +55,7 @@ function getCurrentLocation(event) {
 }
 
 let citysearch = document.querySelector("#city-search");
-citysearch.addEventListener("submit", displaycity);
+citysearch.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+searchCity("Rome");
