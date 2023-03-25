@@ -19,28 +19,30 @@
     <div class="container">
        <div class="weather-app-wrapper">
         <div class="weather-app">
-    <form id="city-search">
-      <input type="text" id ="your-city" class="border-primary bg-info-subtle text-emphasis-info rounded-1" placeholder="Search city" autofocus/>
- <input type="submit" class="bg-info-subtle rounded-1 border-primary" value="Enter" />
- <input type="submit" id="button" class="bg-info-subtle rounded-1 border-primary" value="Current Location" /> </form><span>
-    <br/>
+    <form id="city-search" class="mb-3">
+   <div class="row">
+              <div class="col-5">
+      <input type="search" id ="your-city" class="form-control" placeholder="Type a city" autofocus autocomplete="off"/></div>
+   <div class="col">
+      <input type="submit" class="btn btn-primary w-80" value="Search" /></div>
+      <div class="col-5">
+ <input type="submit" id="button" class="btn btn-outline-secondary w-80" value="Current Location" /> </form><span></div>
+  <div class="overview">
     <h1 class="city" id="city"></h1>
     <h3 class="date" id="date"></h3>
     <h5 class="description" id="des"></h5>
         <div class="row">
-            <div class="col">
+            <div class="col-5">
    <h2 class="degrees">
    <span id="temp"></span>°<span class="current-temperature" id="units"><a href ="#" id="celsius-link">C</a> | <a href ="#" id="farheneit-link">F</a><span class="current-weather"><img src= "" alt=""  id="icon"/></span></h2> 
     </div>
-    <div class ="col">
+    <div class ="col-5">
      <ul>
       <li>Humidity: <span id="humidity"></span>%</li>
-      <li>Wind: <span id="wind"></span> Km/H</li>
+      <li>Wind: <span id="wind"></span> Km/h</li>
      </ul>
     </div>
-    <br />
-     <br/>
-      <br/>
+    </div>
     <div class="row">
             <div class="col">
               <h3 class="monday"> <strong>MON</strong> </h3>
