@@ -46,6 +46,13 @@ li {
   right: -5px;
   font-weight: light;
 }
+.current-temperature .active {
+  color: rgb(70, 69, 69);
+  cursor: default;
+}
+a {
+  text-decoration: none;
+}
 
 .description {
   position: relative;

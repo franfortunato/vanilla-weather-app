@@ -36,7 +36,8 @@ function displayWeatherCondition(response) {
   let currentcity = document.querySelector("#city");
   currentcity.innerHTML = response.data.city;
   let temperature = document.querySelector("#temp");
-  let temp = Math.round(response.data.temperature.current);
+  celsiusTemp = response.data.temperature.current;
+  let temp = Math.round(celsiusTemp);
   temperature.innerHTML = `${temp}`;
   let description = document.querySelector("#des");
   description.innerHTML = response.data.condition.description;
@@ -45,6 +46,7 @@ function displayWeatherCondition(response) {
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
   let icon = document.querySelector("#icon");
+
   icon.setAttribute(
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
@@ -61,8 +63,30 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+function displayFahreneitTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temp");
+  celsiusLink.classList.remove("active");
+  farheneitLink.classList.add("active");
+  let fahreneitTemp = (celsiusTemp * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahreneitTemp);
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temp");
+  celsiusLink.classList.add("active");
+  farheneitLink.classList.remove("active");
+  temperature.innerHTML = Math.round(celsiusTemp);
+}
 let citysearch = document.querySelector("#city-search");
 citysearch.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+let celsiusTemp = null;
+let farheneitLink = document.querySelector("#farheneit-link");
+farheneitLink.addEventListener("click", displayFahreneitTemp);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
 searchCity("Rome");
