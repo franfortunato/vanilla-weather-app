@@ -54,7 +54,7 @@ li {
 .current-weather {
   font-size: 250%;
   position: relative;
-  top: 25px;
+  top: 20px;
   right: -15px;
 }
 .wednesday,
