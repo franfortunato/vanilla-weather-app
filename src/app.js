@@ -32,6 +32,38 @@ function handleSubmit(event) {
   let city = document.querySelector("#your-city").value;
   searchCity(city);
 }
+
+function getForecast(coordinates) {
+  let apiKey = `o07tbd43af0deae24a2d482039c7cfcf`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col">
+              <h3 class="weather-forecast-date"> <strong>${day}</strong> </h3>
+              <div class="weather-forecast-icon">
+            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+            alt="clear-sky-night" 
+            width="75"
+            /> </div>
+            <div class="weather-forecast-temperatures">
+          <h5 class="temperature-max"> 16° <span class="temperature-min"> 2° </h5> </div> </div>
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 function displayWeatherCondition(response) {
   let currentcity = document.querySelector("#city");
   currentcity.innerHTML = response.data.city;
@@ -52,6 +84,8 @@ function displayWeatherCondition(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   icon.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 function searchLocation(position) {
   let apiKey = `o07tbd43af0deae24a2d482039c7cfcf`;
@@ -90,3 +124,4 @@ farheneitLink.addEventListener("click", displayFahreneitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 searchCity("Rome");
+displayForecast();
