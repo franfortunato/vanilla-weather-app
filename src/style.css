@@ -9,11 +9,11 @@ li {
   padding: 0;
   color: rgb(70, 69, 69);
   position: relative;
-  top: -5px;
-  font-size: medium;
+  top: -2px;
+  left: 45px;
 }
 .weather-app-wrapper {
-  max-width: 900px;
+  max-width: 800px;
   margin: 30px auto;
 }
 .weather-app {
@@ -38,13 +38,20 @@ li {
 .degrees {
   font-size: 400%;
   color: rgb(70, 69, 69);
-  margin-top: -20px;
+  margin-top: -22px;
+  margin-left: -18px;
+}
+
+.current {
+  position: relative;
+  top: 3px;
+  right: 15px;
 }
 .current-temperature {
   font-size: 20px;
   position: relative;
-  top: -30px;
-  right: -5px;
+  top: -25px;
+  right: 12px;
   font-weight: light;
 }
 .current-temperature .active {
@@ -59,7 +66,8 @@ a {
   position: relative;
   color: rgb(70, 69, 69);
   font-style: italic;
-  top: -10px;
+  top: -32px;
+  left: 90px;
 }
 .current-weather {
   font-size: 250%;
@@ -67,8 +75,16 @@ a {
   top: 20px;
   right: -15px;
 }
+
+.wind,
+.feeling,
+.humidity {
+  color: #0b5ed7;
+  font-weight: 600;
+  opacity: 0.8;
+}
 .weather-forecast {
-  margin-top: 20px;
+  margin-top: -10px;
   text-align: center;
   color: #000;
 }
@@ -89,5 +105,6 @@ a {
   margin-top: 10px;
 }
 .temperature-min {
-  color: rgb(70, 69, 69);
+  color: #0b5ed7;
+  opacity: 0.5;
 }

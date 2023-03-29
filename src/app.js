@@ -78,6 +78,8 @@ function displayWeatherCondition(response) {
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
   let icon = document.querySelector("#icon");
+  let feltTemp = document.querySelector("#feels");
+  feltTemp.innerHTML = Math.round(response.data.temperature.feels_like);
 
   icon.setAttribute(
     "src",
