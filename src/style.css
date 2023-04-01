@@ -76,6 +76,11 @@ a {
   right: -15px;
 }
 
+.degrees img {
+  position: relative;
+  bottom: 3px;
+}
+
 .wind,
 .feeling,
 .humidity {
