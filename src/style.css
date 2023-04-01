@@ -6,7 +6,7 @@ ul {
 li {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0px;
   color: rgb(70, 69, 69);
   position: relative;
   top: -2px;

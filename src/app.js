@@ -36,28 +36,44 @@ function handleSubmit(event) {
 function getForecast(coordinates) {
   let apiKey = `o07tbd43af0deae24a2d482039c7cfcf`;
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecastData = response.data.daily;
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecastData.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
             <div class="col">
-              <h3 class="weather-forecast-date"> <strong>${day}</strong> </h3>
+              <h3 class="weather-forecast-date"> <strong>${formatDay(
+                forecastDay.time
+              )}</strong> </h3>
               <div class="weather-forecast-icon">
-            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+              forecastDay.condition.icon
+            }.png"
             alt="clear-sky-night" 
             width="75"
             /> </div>
             <div class="weather-forecast-temperatures">
-          <h5 class="temperature-max"> 16° <span class="temperature-min"> 2° </h5> </div> </div>
+          <h5 class="temperature-max"> ${Math.round(
+            forecastDay.temperature.maximum
+          )}° <span class="temperature-min"> ${Math.round(
+          forecastDay.temperature.minimum
+        )}° </h5> </div> </div>
           `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -126,4 +142,3 @@ farheneitLink.addEventListener("click", displayFahreneitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 searchCity("Rome");
-displayForecast();
